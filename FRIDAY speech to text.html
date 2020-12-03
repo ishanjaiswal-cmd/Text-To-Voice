@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Speech Recognition</title>
+<script src="Speech to Text.js"></script>
+<style>
+    h2 {color: rgb(146, 35, 35);}body {background-color: cyan;}
+</style>
+</head>
+<body>
+    <h2>HI I AM ISHAN'S AUTOMATED SPEECH TO TEXT BOT<br> </h2>
+    <button id="btn" onclick='recognition.start()'>SPEECH TO TEXT</button>
+    <h1 id="result"></h1>
+  <h2>I AM PROGRAMMED BY ISHAN<br>I AM SPEACH TO TEXT CONVERTER</h2>
+  <script>
+    const btn = document.getElementById('btn');
+const result = document.getElementById('result')
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition =  new SpeechRecognition();
+
+recognition.onstart =  function () {
+    console .log('You can speak now');
+}
+
+recognition.onresult = function(event){
+   var text = event.results[0][0].transcript;
+   console.log(text);
+   document.getElementById('result').innerHTML = text;
+
+}
+
+  </script>
+</html>
